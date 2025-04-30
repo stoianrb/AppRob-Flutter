@@ -1,0 +1,68 @@
+plugins {
+    id("com.android.application")
+    id("kotlin-android")
+    id("dev.flutter.flutter-gradle-plugin")
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    compileSdk = 35 // Modificat la SDK 35
+
+    namespace = "com.approb"
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    defaultConfig {
+        applicationId = "com.approb"
+        minSdk = 29
+        targetSdk = 35 // Modificat la SDK 35
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // Exclude BackEvent pentru builduri cu target SDK mai mic decât 34
+            if (project.hasProperty("android.injected.invoked.from.ide")) {
+                resValue "string", "excludeBackEvent", "true"
+            }
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false // Dezactivează verificările pentru build-urile de release
+        warningsAsErrors true    // Tratează avertismentele ca erori
+        lintConfig rootProject.file("lint.xml") // Calea către fișierul lint.xml de configurare
+    }
+}
+
+flutter {
+    source = "../.."
+}

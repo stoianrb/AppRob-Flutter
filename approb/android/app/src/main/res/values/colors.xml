@@ -1,0 +1,4 @@
+<resources>
+    <!-- Definește culoarea de fundal a iconiței aplicației -->
+    <color name="ic_launcher_background">#ffffff</color>#ffffff<!-- poți schimba această culoare -->
+</resources>

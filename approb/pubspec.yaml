@@ -1,0 +1,81 @@
+name: approb
+description: "Aplicatie programari."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.6.1 <4.0.0"  # Asigură-te că folosești versiunea corectă de SDK
+
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: ^2.5.0
+  firebase_core: ^3.12.1
+  firebase_auth: ^5.5.1
+  google_sign_in: ^6.2.1
+  cloud_firestore: ^5.6.2
+  logger: ^2.5.0
+  provider: ^6.0.0
+  url_launcher: ^6.3.1
+  font_awesome_flutter: ^10.0.0
+  flutter_rating_bar: ^4.0.1
+  youtube_player_iframe: ^5.2.1
+  webview_flutter: ^4.10.0
+  cupertino_icons: ^1.0.8
+  page_transition: ^2.0.9
+  image_picker: ^1.1.2
+  timezone: ^0.9.0
+  intl: ^0.20.2
+  table_calendar: ^3.0.0
+  permission_handler: ^11.3.1
+  flutter_plugin_android_lifecycle: ^2.0.24
+  animate_do: ^4.2.0
+  shimmer: ^3.0.0
+  cached_network_image: ^3.3.0
+  in_app_purchase: ^3.1.7
+  async: ^2.11.0
+  fake_async: ^1.3.1
+  leak_tracker: ^10.0.7
+  material_color_utilities: ^0.11.1
+  permission_handler_android: ^12.1.0
+  vm_service: ^14.3.0
+  awesome_notifications: 0.10.1
+  firebase_messaging: 15.2.4
+  logging: ^1.0.0
+  dialogflow_grpc: ^0.2.0  # Asigură-te că folosești versiunea corectă
+  speech_to_text: ^5.0.0
+  flutter_local_notifications: ^12.0.0
+  googleapis_auth: ^1.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.3
+  flutter_native_splash: ^2.0.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/src/assets/fundal/logoapp.png
+    - lib/src/assets/robert-50493-6a8056646681.json
+
+flutter_native_splash:
+  image: lib/src/assets/fundal/logoapp.png
+  color: "#000000"  # Culoarea de fundal
+  android: true
+  ios: true
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "lib/src/assets/fundal/logoapp.png"
+  remove_alpha_ios: true
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "lib/src/assets/fundal/logoapp.png"
+
+
+flutter_local_notifications:
+  platforms:
+    linux: false

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <!-- Dezactivează avertismentele pentru anumite API-uri depășite -->
+    <issue id="Deprecation" severity="ignore" />
+    
+    <!-- Activează tratarea avertismentelor ca erori pentru anumite tipuri de probleme -->
+    <issue id="NewApi" severity="error" />
+</lint>
